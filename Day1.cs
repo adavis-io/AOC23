@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace AOC22
+namespace AOC23
 {
     public class Day1 : Day
     {

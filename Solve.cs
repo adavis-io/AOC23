@@ -1,11 +1,11 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 
-class AOC23 
+class AOC
 {
     static void Main(string[] args)
     {
-        List<AOC22.Day> days = new();
+        List<AOC23.Day> days = new();
 
         bool test = args.Contains("--test");
 
@@ -18,8 +18,9 @@ class AOC23
             Console.WriteLine("Running with full data"); 
         }
 
-        days.Add(new AOC22.Day1(test));
-        //days.Add(new AOC22.Day2(test));
+        //days.Add(new AOC23.Day1(test));
+        days.Add(new AOC23.Day2(test));
+        //days.Add(new AOC23.Day3(test));
 
         foreach (var day in days)
         {
