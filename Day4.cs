@@ -12,6 +12,8 @@ namespace AOC23
         public List<int> have = [];
         public List<int> winning = [];
 
+        public int count;
+
         public Card(string input)
         {
             var card_id_re = new Regex(@"Card\s+(\d+)");
@@ -32,7 +34,7 @@ namespace AOC23
                 if (num.Trim().Length > 0)
                     this.winning.Add(int.Parse(num));
             }
-
+            this.count = 1;
         }
 
         public int Matches 
@@ -80,16 +82,31 @@ namespace AOC23
 
             var cards = new List<Card>();
 
-            int score = 0;
             foreach (var line in lines)
             {
                 var c = new Card(line);
-                score += (int)Math.Pow(2, c.Matches - 1);
-
+                
                 cards.Add(c);
+
+            }           
+
+            for (int i = 0; i < cards.Count; i++)
+            {
+                for (int j = i + 1; j <= cards[i].Matches + i; j++)
+                {
+                    cards[j].count += cards[i].count;
+
+                }
 
             }
 
+            int sum = 0;
+            foreach(Card c in cards)
+            {
+                sum += c.count;
+            }
+
+            Console.WriteLine(sum);
         }
     }
 }
