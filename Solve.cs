@@ -19,8 +19,8 @@ class AOC
         }
 
         //days.Add(new AOC23.Day1(test));
-        days.Add(new AOC23.Day2(test));
-        //days.Add(new AOC23.Day3(test));
+        //days.Add(new AOC23.Day2(test));
+        days.Add(new AOC23.Day3(test));
 
         foreach (var day in days)
         {
