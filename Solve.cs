@@ -21,12 +21,31 @@ class AOC
         //days.Add(new AOC23.Day1(test));
         //days.Add(new AOC23.Day2(test));
         //days.Add(new AOC23.Day3(test));
-        days.Add(new AOC23.Day4(test));
+        //days.Add(new AOC23.Day4(test));
+        days.Add(new AOC23.Day5(test));
         foreach (var day in days)
         {
+
             Console.WriteLine(day.name);
+
+            long part1millis, part2millis;
+
+            var solvetimer = System.Diagnostics.Stopwatch.StartNew();
+            
             day.Part1();
+            
+            solvetimer.Stop();
+            
+            part1millis = solvetimer.ElapsedMilliseconds;
+
+            solvetimer.Restart();
+            
             day.Part2();
+
+            solvetimer.Stop();
+            part2millis = solvetimer.ElapsedMilliseconds;
+
+            Console.WriteLine(String.Format("\tSolved Part 1 in {0}ms, Part 2 in {1}ms", part1millis, part2millis));
         }
     }
 }
